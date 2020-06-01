@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/delButton"
             app:layout_constraintTop_toBottomOf="@+id/tuneView" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/saveButton"/>
+            app:layout_constraintEnd_toStartOf="@+id/saveButton" android:onClick="clearTune"/>
     <Button
             android:text="Save"
             android:layout_width="wrap_content"
@@ -50,40 +50,44 @@
             android:text="A"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playA"
-            app:layout_constraintBottom_toTopOf="@+id/playE" app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintBottom_toTopOf="@+id/playE" app:layout_constraintStart_toStartOf="parent"
+            android:onClick="playA"/>
     <Button
             android:text="B"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playB"
             app:layout_constraintBottom_toTopOf="@+id/playF" app:layout_constraintStart_toEndOf="@+id/playA"
-            app:layout_constraintEnd_toStartOf="@+id/half"/>
+            app:layout_constraintEnd_toStartOf="@+id/half" android:onClick="playB"/>
     <Button
             android:text="C"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playC"
             app:layout_constraintEnd_toStartOf="@+id/playD" app:layout_constraintBottom_toTopOf="@+id/playF"
-            app:layout_constraintStart_toStartOf="@+id/half"/>
+            app:layout_constraintStart_toStartOf="@+id/half" android:onClick="playC"/>
     <Button
             android:text="D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playD"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/playG"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/playG"
+            android:onClick="playD"/>
     <Button
             android:text="E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playE"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:onClick="playE"/>
     <Button
             android:text="F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playF"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/playE"
-            app:layout_constraintEnd_toStartOf="@+id/playG"/>
+            app:layout_constraintEnd_toStartOf="@+id/playG" android:onClick="playF"/>
     <Button
             android:text="G"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playG"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="playG"/>
     <androidx.constraintlayout.widget.Guideline
             android:orientation="vertical"
             android:layout_width="wrap_content"
