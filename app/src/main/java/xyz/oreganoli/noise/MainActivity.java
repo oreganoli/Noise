@@ -1,5 +1,6 @@
 package xyz.oreganoli.noise;
 
+import android.media.SoundPool;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,37 +20,37 @@ public class MainActivity extends AppCompatActivity {
     public void playA(View view) {
         currentTune += "A";
         updateTuneView();
-        notes.a.start();
+        notes.playString("A");
     }
     public void playB(View view) {
         currentTune += "B";
         updateTuneView();
-        notes.b.start();
+        notes.playString("B");
     }
     public void playC(View view) {
         currentTune += "C";
         updateTuneView();
-        notes.c.start();
+        notes.playString("C");
     }
     public void playD(View view) {
-        currentTune += "C";
-        updateTuneView();
-        notes.d.start();
-    }
-    public void playE(View view) {
         currentTune += "D";
         updateTuneView();
-        notes.e.start();
+        notes.playString("D");
+    }
+    public void playE(View view) {
+        currentTune += "E";
+        updateTuneView();
+        notes.playString("E");
     }
     public void playF(View view) {
         currentTune += "F";
         updateTuneView();
-        notes.f.start();
+        notes.playString("F");
     }
     public void playG(View view) {
         currentTune += "G";
         updateTuneView();
-        notes.g.start();
+        notes.playString("G");
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tuneView = findViewById(R.id.tuneView);
         tuneView.setText(currentTune);
-        notes = new NotePlayer();
-        notes.populate(this);
+        notes = new NotePlayer(this);
     }
 }
