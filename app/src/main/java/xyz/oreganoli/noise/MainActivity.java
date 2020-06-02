@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity extends AppCompatActivity {
     ButtonCollection buttons;
     TextView tuneView;
-    String currentTune = "AACBD";
+    String currentTune = "";
     NotePlayer player;
     ThreadPoolExecutor executor;
     private void updateTuneView() {
