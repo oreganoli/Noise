@@ -1,22 +1,41 @@
 package xyz.oreganoli.noise;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Environment;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
     ButtonCollection buttons;
+    Button saveButton;
     TextView tuneView;
     String currentTune = "";
     NotePlayer player;
     ThreadPoolExecutor executor;
     private void updateTuneView() {
         tuneView.setText(currentTune);
+        if (currentTune.isEmpty()) {
+            saveButton.setEnabled(false);
+        } else {
+            saveButton.setEnabled(true);
+        }
     }
     public void clearTune(View view) {
         currentTune = "";
@@ -67,13 +86,24 @@ public class MainActivity extends AppCompatActivity {
     public void playTune(View view) {
         executor.execute(new MusicWorker(player, currentTune));
     }
+    public void saveTune(View view) throws IOException {
+        String filename = "song-" + System.currentTimeMillis() / 1000L + ".music";
+        File path = getExternalFilesDir(null);
+        File file = new File(path, filename);
+        RandomAccessFile raf = new RandomAccessFile(file, "rws");
+        raf.writeUTF(currentTune);
+        raf.close();
+        Toast.makeText(this, "Saved as " + path.getAbsolutePath() + "/" + filename, Toast.LENGTH_SHORT).show();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         buttons = new ButtonCollection(this);
         tuneView = findViewById(R.id.tuneView);
+        saveButton = findViewById(R.id.saveButton);
         tuneView.setText(currentTune);
+        updateTuneView();
         player = new NotePlayer(this);
         executor = new ThreadPoolExecutor(4, 4, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<Runnable>());
     }

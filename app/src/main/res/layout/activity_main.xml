@@ -31,7 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/saveButton"
             app:layout_constraintTop_toBottomOf="@+id/tuneView"
-            app:layout_constraintEnd_toEndOf="@+id/tuneLabel" app:layout_constraintStart_toStartOf="@+id/tuneLabel"/>
+            app:layout_constraintEnd_toEndOf="@+id/tuneLabel" app:layout_constraintStart_toStartOf="@+id/tuneLabel"
+            android:onClick="saveTune"/>
     <Button
             android:text="Load"
             android:layout_width="wrap_content"
