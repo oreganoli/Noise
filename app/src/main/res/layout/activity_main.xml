@@ -75,19 +75,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playE"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:onClick="playE"/>
+            android:onClick="playE" app:layout_constraintEnd_toStartOf="@+id/playF"/>
     <Button
             android:text="F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playF"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/playE"
-            app:layout_constraintEnd_toStartOf="@+id/playG" android:onClick="playF"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="playF" app:layout_constraintStart_toStartOf="@+id/half"
+            app:layout_constraintEnd_toStartOf="@+id/half"/>
     <Button
             android:text="G"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/playG"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            android:onClick="playG"/>
+            android:onClick="playG" app:layout_constraintStart_toEndOf="@+id/playF"/>
     <androidx.constraintlayout.widget.Guideline
             android:orientation="vertical"
             android:layout_width="wrap_content"
