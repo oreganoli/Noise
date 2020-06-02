@@ -4,8 +4,6 @@ import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
-import androidx.annotation.NonNull;
-
 public class NotePlayer {
     SoundPool pool;
     private Integer idFromNote(char note) {
@@ -57,7 +55,12 @@ public class NotePlayer {
             soundId = idFromNote(input.charAt(i));
             if (soundId != null) {
                pool.play(soundId, 1, 1, 1, 0, 1);
-            }
+               try {
+                   Thread.sleep(400);
+               } catch (Exception _ex) {
+                   // do nothing lol
+               }
+           }
         }
     }
 }
