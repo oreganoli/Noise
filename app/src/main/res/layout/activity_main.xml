@@ -39,7 +39,7 @@
             android:layout_height="wrap_content" android:id="@+id/loadButton"
             app:layout_constraintTop_toTopOf="@+id/saveButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/saveButton"/>
+            app:layout_constraintStart_toEndOf="@+id/saveButton" android:onClick="loadTune"/>
     <Button
             android:text="Play"
             android:layout_width="wrap_content"
